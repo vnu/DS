@@ -1,0 +1,20 @@
+Pseudo Code :
+	For Main ()
+	while converge is less than 15
+	 Create a new Job shortestPathDijkstras
+	 Set the mapper class
+	 Set the reducer class
+	 Set the input file which will be the first argument for only the first time
+	 After that , the output generated for the first argument and thereafter each stage is the input for the remaining stages
+	 Wait for the job to complete.
+	 
+	 
+	 For Map()
+		Each line is tokenized based on space
+		The last token is tokenized to get the connected nodes that are seperated by the ':'
+		The cost is incremented by 1 for each hop
+		The resulting key/value pair (node , distance) is sent to the reducer to calculate the minimum distance
+		
+	For Reducer()
+		The minimum distance for each key is found through the minimumcost
+		The key/value pair is sent to the corresponding output file which is later used as input to next stage through main
